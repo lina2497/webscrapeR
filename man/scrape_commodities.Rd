@@ -15,11 +15,3 @@ A dataframe of historical prices for the selected commodity
 \description{
 Scrape historical commodity prices
 }
-\examples{
-scrape_commodities(
-URL="https://uk.investing.com/commodities/gold-historical-data"
-)
-scrape_commodities(
-URL="https://uk.investing.com/commodities/silver-historical-data"
-)
-}

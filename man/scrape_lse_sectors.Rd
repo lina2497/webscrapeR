@@ -18,7 +18,3 @@ over a list of urls to minimise nuisance to target website.
 \description{
 Scrape share prices from a particular sector from the London Stock Exchange website.
 }
-\examples{
-scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451020&page=1")
-scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451010&page=1")
-}

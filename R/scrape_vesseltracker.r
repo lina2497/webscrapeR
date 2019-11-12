@@ -9,12 +9,7 @@
 #' scrape_vesseltracker(url="https://www.vesseltracker.com/en/Port/Calais/Dashboard.html")
 #' scrape_vesseltracker(url="https://www.vesseltracker.com/en/Port/Belfast/Dashboard.html")
 #' @export
-#' @import dplyr
-#' @import rvest
-#' @import xml2
-#' @import purrr
-#' @import tidyr
-#' @import stats
+#' @importFrom tidyr fill
 
 #function for scraping port data
 scrape_vesseltracker<-function(url,pause=0)

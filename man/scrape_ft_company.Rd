@@ -18,8 +18,3 @@ over a list of urls to minimise nuisance to target website.
 \description{
 Scrape share prices from a particular company from the financial times.
 }
-\examples{
-scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=KRZ:ISE")
-scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=BA:NYQ")
-scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=WBA:NSQ", pause=2)
-}

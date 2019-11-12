@@ -4,16 +4,14 @@
 #' @param pause Indicates how long the function should sleep for before returning a value.
 #' @return A dataframe of prices, pack sizes, and product ids. Use \code{pause} when vectorising this function
 #' over a list of urls to minimise nuisance to target website.
-#' @examples
-#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?Query=cadburys%20chocolate")
-#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=baked+beans&store=Tesco")
-#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=ice+cream&store=Tesco&_fcategory=Ice_Lollies")
+#@examples
+#scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?Query=cadburys%20chocolate")
+#scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=baked+beans&store=Tesco")
+#scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=ice+cream&store=Tesco&_fcategory=Ice_Lollies")
 #' @export
-#' @import rvest
-#' @import dplyr
-#' @import xml2
-#' @import tidyr
-#' @import purrr
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_attr
+#' @importFrom dplyr bind_cols
 
 
 

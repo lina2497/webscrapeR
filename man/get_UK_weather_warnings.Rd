@@ -14,6 +14,3 @@ Returns a tidy dataframe of all UK weather warnings disaggregated by region..
 Parse the met office RSS feed for weather warnings into a tidy data frame.
 "http://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
 }
-\examples{
-get_UK_weather_warnings()
-}

@@ -18,8 +18,3 @@ over a list of urls to minimise nuisance to target website.
 \description{
 Scrape supermarket prices from mysupermarket.co.uk
 }
-\examples{
-scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?Query=cadburys\%20chocolate")
-scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=baked+beans&store=Tesco")
-scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=ice+cream&store=Tesco&_fcategory=Ice_Lollies")
-}

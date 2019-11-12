@@ -18,20 +18,3 @@ over a list of urls to minimise nuisance to target website.
 \description{
 Scrape share prices from a particular company from the London Stock Exchange website.
 }
-\examples{
-scrape_lse_company(
-url=
-"https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/summary/company-summary/GB0008847096GBGBXSET1.html"
-)
-
-scrape_lse_company(
-url=
-"https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/summary/company-summary/GB0009697037GBGBXSTMM.html"
-)
-
-scrape_lse_company(
-url=
-"https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/summary/company-summary/GB0006731235GBGBXSET1.html",
-pause=2
-)
-}

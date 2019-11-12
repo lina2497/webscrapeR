@@ -3,18 +3,17 @@
 #' @param URL A url from "https://uk.investing.com/commodities/".
 #'
 #' @return A dataframe of historical prices for the selected commodity
-#' @examples
-#' scrape_commodities(
-#' URL="https://uk.investing.com/commodities/gold-historical-data"
-#' )
-#' scrape_commodities(
-#' URL="https://uk.investing.com/commodities/silver-historical-data"
-#' )
+# @examples
+# scrape_commodities(
+# URL="https://uk.investing.com/commodities/gold-historical-data"
+# )
+# scrape_commodities(
+# URL="https://uk.investing.com/commodities/silver-historical-data"
+# )
 #' @export
-#' @import rvest
-#' @import lubridate
-#' @import xml2
-
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_table
+#' @importFrom lubridate parse_date_time
 #function to scrape the historical price of commodities from uk.investing.com
 
 

@@ -4,14 +4,11 @@
 #' @param pause Indicates how long the function should sleep for before returning a value.
 #' @return A dataframe of historical share statistics from a particular sector Use \code{pause} when vectorising this function
 #' over a list of urls to minimise nuisance to target website.
-#' @examples
-#' scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451020&page=1")
-#' scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451010&page=1")
+# @examples
+# scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451020&page=1")
+# scrape_lse_sectors(url="https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/constituents-indices.html?index=&industrySector=451010&page=1")
 #' @export
-#' @import rvest
-#' @import dplyr
-#' @import xml2
-#' @import tidyr
+
 
 
 scrape_lse_sectors<-function(url,pause=0){

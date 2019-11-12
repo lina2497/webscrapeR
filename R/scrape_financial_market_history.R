@@ -3,26 +3,26 @@
 #' @param url A url from "https://www.sharesmagazine.co.uk/indices/index/".
 #'
 #' @return A dataframe of historical values for the selected market.
-#' @examples
-#' scrape_financial_market_history(
-#' url="https://www.sharesmagazine.co.uk/indices/index/IXIC/historic-prices"
-#' )
-#'
-#' scrape_financial_market_history(
-#' url="https://www.sharesmagazine.co.uk/indices/index/UKX/historic-prices"
-#' )
-#'
-#' scrape_financial_market_history(
-#' url="https://www.sharesmagazine.co.uk/indices/index/MCX/historic-prices"
-#' )
+#@examples
+# scrape_financial_market_history(
+#   url="https://www.sharesmagazine.co.uk/indices/index/IXIC/historic-prices"
+# )
+#
+# scrape_financial_market_history(
+#   url="https://www.sharesmagazine.co.uk/indices/index/UKX/historic-prices"
+# )
+#
+# scrape_financial_market_history(
+#   url="https://www.sharesmagazine.co.uk/indices/index/MCX/historic-prices"
+# )
 #' @export
-#' @import rvest
-#' @import dplyr
-#' @import xml2
-#' @import XML
-#' @import purrr
-#' @import stringi
-#' @import stats
+#'
+#' @importFrom purrr map_df
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_table
+#' @importFrom dplyr mutate
+#' @importFrom stringi stri_replace
+
 
 
 ##function to scrape historical prices from financial markets
@@ -42,6 +42,8 @@ scrape_financial_market_history<-function(url){
 return(market)
 
 }
+
+
 
 
 

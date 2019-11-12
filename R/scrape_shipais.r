@@ -4,16 +4,12 @@
 #' @param pause Indicates how long the function should sleep for before returning a value.
 #' @return A dataframe of ship name, speed, status, destination, ETA and details. Use \code{pause} when vectorising this function
 #' over a list of urls to minimise nuisance to target website.
-#' @examples
-#' scrape_shipais(url="http://www.shipais.com/currentmap.php?map=Channel")
-#' scrape_shipais(url="http://www.shipais.com/index.php?map=IrishSea")
-#' scrape_shipais(url="http://www.shipais.com/index.php?map=uk")
+# @examples
+# scrape_shipais(url="http://www.shipais.com/currentmap.php?map=Channel")
+# scrape_shipais(url="http://www.shipais.com/index.php?map=IrishSea")
+# scrape_shipais(url="http://www.shipais.com/index.php?map=uk")
 #' @export
-#' @import rvest
-#' @import dplyr
-#' @import xml2
-#' @import tidyr
-#' @import purrr
+
 
 
 

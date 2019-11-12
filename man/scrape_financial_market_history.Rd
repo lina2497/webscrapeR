@@ -15,16 +15,3 @@ A dataframe of historical values for the selected market.
 \description{
 Scrape historical values for different financial markets
 }
-\examples{
-scrape_financial_market_history(
-url="https://www.sharesmagazine.co.uk/indices/index/IXIC/historic-prices"
-)
-
-scrape_financial_market_history(
-url="https://www.sharesmagazine.co.uk/indices/index/UKX/historic-prices"
-)
-
-scrape_financial_market_history(
-url="https://www.sharesmagazine.co.uk/indices/index/MCX/historic-prices"
-)
-}

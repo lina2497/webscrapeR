@@ -3,14 +3,15 @@
 #'
 
 #' @return Returns a tidy dataframe of all UK weather warnings disaggregated by region..
-#' @examples
-#' get_UK_weather_warnings()
-#' @export
-#' @import tidyr
-#' @import dplyr
-#' @import xml2
-#' @import purrr
 
+#' @export
+#' @importFrom purrr safely
+#' @importFrom xml2 xml_find_all xml_ns xml_text read_xml
+#' @importFrom dplyr select mutate
+#' @importFrom tidyr separate
+
+#@examples
+#get_UK_weather_warnings()
 
 
 get_UK_weather_warnings<-function(){

@@ -15,16 +15,3 @@ A dataframe of historical exchange rates for the selected currency.
 \description{
 Scrape historical exchange rates from exchangerates.org.uk
 }
-\examples{
-scrape_exchange_rates(
-URL="https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html"
-)
-
-scrape_exchange_rates(
-URL="https://www.exchangerates.org.uk/GBP-CHF-exchange-rate-history.html"
-)
-
-scrape_exchange_rates(
-URL="https://www.exchangerates.org.uk/GBP-CAD-exchange-rate-history.html"
-)
-}

@@ -4,16 +4,18 @@
 #' @param pause Indicates how long the function should sleep for before returning a value.
 #' @return A dataframe of historical share statistics from a particular company. Use \code{pause} when vectorising this function
 #' over a list of urls to minimise nuisance to target website.
-#' @examples
-#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=KRZ:ISE")
-#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=BA:NYQ")
-#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=WBA:NSQ", pause=2)
+# @examples
+# scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=KRZ:ISE")
+# scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=BA:NYQ")
+# scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=WBA:NSQ", pause=2)
 #' @export
-#' @import rvest
-#' @import dplyr
-#' @import xml2
-#' @import tidyr
-#' @import purrr
+#' @importFrom purrr map map_chr set_names
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_table html_text html_children
+#' @importFrom tidyr tibble
+#' @importFrom dplyr "%>%"
+
+
 
 
 scrape_ft_company <- function(url,pause=0) {
