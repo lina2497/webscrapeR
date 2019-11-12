@@ -1,17 +1,40 @@
+#' Scrape historical exchange rates from exchangerates.org.uk
+#'
+#' @param URL A url from ""https://www.exchangerates.org.uk/".
+#'
+#' @return A dataframe of historical exchange rates for the selected currency.
+#' @examples
+#' scrape_exchange_rates(
+#' URL="https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html"
+#' )
+#'
+#' scrape_exchange_rates(
+#' URL="https://www.exchangerates.org.uk/GBP-CHF-exchange-rate-history.html"
+#' )
+#'
+#' scrape_exchange_rates(
+#' URL="https://www.exchangerates.org.uk/GBP-CAD-exchange-rate-history.html"
+#' )
+#' @export
+#' @import rvest
+#' @import dplyr
+#' @import xml2
+#' @import XML
 
-##Function to scrape historical exchange rates from exchangerates.org
 
 
-#library(dplyr)
-scrape_exchange_rates<-function(URL="https://www.exchangerates.org.uk/GBP-EUR-exchange-rate-history.html"){
+#function to scrape the historical price of commodities from uk.investing.com
+scrape_exchange_rates<-function(URL){
 
-  x<-xml2::read_html(URL)%>%as.character()
+
+
+  x<-as.character(xml2::read_html(URL))
 
 
   pagetree <- XML::htmlTreeParse(x, error=function(...){}, useInternalNodes = TRUE)
 
 
-  results <- XML::xpathSApply(pagetree, '//*/table[//*[@id="hd-maintable"]]/tr/td', xmlValue)
+  results <- XML::xpathSApply(pagetree, '//*/table[//*[@id="hd-maintable"]]/tr/td', XML::xmlValue)
 
 
   content <- as.data.frame(matrix(results, ncol = 3, byrow = TRUE),stringsAsFactors = FALSE)

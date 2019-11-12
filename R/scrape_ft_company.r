@@ -1,4 +1,22 @@
-scrape_ft_company <- function(url="https://markets.ft.com/data/equities/tearsheet/summary?s=KRZ:ISE",pause=0) {
+#' Scrape share prices from a particular company from the financial times.
+#'
+#' @param url A url from "https://markets.ft.com/data/equities/tearsheet/".
+#' @param pause Indicates how long the function should sleep for before returning a value.
+#' @return A dataframe of historical share statistics from a particular company. Use \code{pause} when vectorising this function
+#' over a list of urls to minimise nuisance to target website.
+#' @examples
+#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=KRZ:ISE")
+#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=BA:NYQ")
+#' scrape_ft_company(url="https://markets.ft.com/data/equities/tearsheet/summary?s=WBA:NSQ", pause=2)
+#' @export
+#' @import rvest
+#' @import dplyr
+#' @import xml2
+#' @import tidyr
+#' @import purrr
+
+
+scrape_ft_company <- function(url,pause=0) {
   print("Scraping started")
   print(url)
 
@@ -34,7 +52,7 @@ scrape_ft_company <- function(url="https://markets.ft.com/data/equities/tearshee
     purrr::map(as.numeric) %>%
     unlist()
 
-  out <- tibble(
+  out <-tidyr::tibble(
     Code,
     Name,
     Cur,

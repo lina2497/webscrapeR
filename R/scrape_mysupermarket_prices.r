@@ -1,5 +1,24 @@
+#' Scrape supermarket prices from mysupermarket.co.uk
+#'
+#' @param url A search recult url from "https://www.mysupermarket.co.uk/".
+#' @param pause Indicates how long the function should sleep for before returning a value.
+#' @return A dataframe of prices, pack sizes, and product ids. Use \code{pause} when vectorising this function
+#' over a list of urls to minimise nuisance to target website.
+#' @examples
+#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?Query=cadburys%20chocolate")
+#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=baked+beans&store=Tesco")
+#' scrape_mysupermarket_prices(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?query=ice+cream&store=Tesco&_fcategory=Ice_Lollies")
+#' @export
+#' @import rvest
+#' @import dplyr
+#' @import xml2
+#' @import tidyr
+#' @import purrr
+
+
+
 ##Function for scraping price data from mysupermarket.co.uk
-scrape_mysupermarket_prices<-function(url="https://www.mysupermarket.co.uk/Shopping/FindProducts.aspx?Query=cadburys%20chocolate"){
+scrape_mysupermarket_prices<-function(url,pause=0){
 
   ###### function to extract supermarket data from a list of URLs e.g multiple pages ###################################
   extract_from_list<-function(Scraped){
@@ -158,7 +177,7 @@ scrape_mysupermarket_prices<-function(url="https://www.mysupermarket.co.uk/Shopp
 
   if (length(y) == 0) {
     #if no results
-    print(paste("0 items found"))  #print the number of results to the console
+    print("no items found")  #print the number of results to the console
     # urls$results[i] <- 0#store the number of results
     pages<-0
   }
@@ -167,8 +186,9 @@ scrape_mysupermarket_prices<-function(url="https://www.mysupermarket.co.uk/Shopp
     #if there are some results
 
     items <- as.numeric(strsplit(rvest::html_text(y), " ")[[1]][3])
-    print(paste(items, "items found"))
+    print(paste(items,"items found"))
     pages <-round(items / 41) + 1#This looks random but mysupermarket show 41 items per page by default so dividing items by 41 gives page count
+    #print(paste(pages,"pages"))
   }
 
 
@@ -187,10 +207,18 @@ scrape_mysupermarket_prices<-function(url="https://www.mysupermarket.co.uk/Shopp
       out <- error_proof(extract_from_page(x))#extract that page
   }
 
+  print("Scraping successful")
+  if(pause>0){
+    print(paste("Pausing for",pause,"seconds"))
+    Sys.sleep(pause)
+  }
+
+
   return(out%>%
            tidy_prices()%>%
            mutate(date=Sys.Date(),
-                  url=url)
+                  url=url)%>%
+           unique()
            )
 }
 
